@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/png" href="assets/img/FARRAS_GHALYANDRA__2_-removebg-preview.png">
+  <title>Kudai Detail</title>
+  <style>
+    .slider-container {
+      width: 80%;
+      max-width: 300px;
+      margin: 40px auto;
+      position: relative;
+    }
+
+    .slider-image {
+      width: 100%;
+      display: block;
+      border-radius: 10px;
+      opacity: 1;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .nav-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      font-size: 20px;
+      padding: 6px 10px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .prev {
+      left: 0;
+    }
+
+    .next {
+      right: 0;
+    }
+
+    .deskripsi {
+    background-color: #fefcfb; /* warna latar lembut */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 40px auto;
+    font-size: 16px;
+    text-align: justify;
+    border-left: 6px solid #2d49a8;
+}
+
+.deskripsi p {
+    margin: 0;
+}
+
+.btn-back {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 10px 20px;
+    background-color: #3277e4; /* warna coklat kopi */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-back:hover {
+    background-color: #13378b; /* warna lebih gelap pas hover */
+}
+
+
+  </style>
+</head>
+<body>
+
+    <a href="index.html" class="btn-back">← Kembali ke Beranda</a>
+
+  <div class="slider-container">
+    <img id="slider" class="slider-image" src="assets/img/HomeKudai.png" alt="Kudai Image" />
+    <button class="nav-button prev" onclick="prevImage()">❮</button>
+    <button class="nav-button next" onclick="nextImage()">❯</button>
+  </div>
+
+  <script>
+    const images = [
+      "assets/img/HomeKudai.png",
+      "assets/img/MenuKudai.png"
+    ];
+
+    let currentIndex = 0;
+    const slider = document.getElementById("slider");
+
+    function showImage(index) {
+      slider.style.opacity = 0; // Mulai fade out
+      setTimeout(() => {
+        slider.src = images[index]; // Ganti gambar
+        slider.style.opacity = 1;   // Fade in
+      }, 200); // Delay sedikit sebelum ganti gambar
+    }
+
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      showImage(currentIndex);
+    }
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage(currentIndex);
+    }
+  </script>
+
+  <div class="deskripsi">
+    <p>
+        Website Kupi Kudai adalah sebuah situs sederhana yang dirancang untuk memperkenalkan dan <br>
+        mempermudah akses pelanggan terhadap salah satu kafe lokal. Website ini terdiri dari dua halaman utama: <br>
+        Home dan Menu. <br>
+        Halaman Home menampilkan informasi singkat tentang kafe, termasuk nama brand, suasana yang ditawarkan, serta sambutan kepada pengunjung. <br>
+        Halaman Menu menyajikan daftar lengkap produk yang dijual di Kupi Kudai, seperti berbagai jenis kopi, minuman lainnya, dan makanan ringan. <br>
+        Website ini dikembangkan menggunakan HTML dan CSS untuk tampilan antarmuka, serta PHP sebagai <br>
+        backend dasar untuk mengatur struktur halaman dan mempersiapkan integrasi ke fitur dinamis di masa depan. <br>
+        Desain website dibuat responsif dan ramah pengguna, agar mudah diakses dari berbagai perangkat.
+    </p>
+  </div>
+</body>
+</html>

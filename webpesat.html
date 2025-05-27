@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/png" href="assets/img/FARRAS_GHALYANDRA__2_-removebg-preview.png">
+  <title>Web Pesat Detail</title>
+  <style>
+    .slider-container {
+      width: 80%;
+      max-width: 300px;
+      margin: 40px auto;
+      position: relative;
+    }
+
+    .slider-image {
+      width: 100%;
+      display: block;
+      border-radius: 10px;
+      opacity: 1;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .nav-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      font-size: 20px;
+      padding: 6px 10px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .prev {
+      left: 0;
+    }
+
+    .next {
+      right: 0;
+    }
+
+    .deskripsi {
+    background-color: #fefcfb; /* warna latar lembut */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 40px auto;
+    font-size: 16px;
+    text-align: justify;
+    border-left: 6px solid #2d49a8;
+}
+
+.deskripsi p {
+    margin: 0;
+}
+
+.btn-back {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 10px 20px;
+    background-color: #3277e4; /* warna coklat kopi */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-back:hover {
+    background-color: #13378b; /* warna lebih gelap pas hover */
+}
+
+
+  </style>
+</head>
+<body>
+
+    <a href="index.html" class="btn-back">← Kembali ke Beranda</a>
+
+  <div class="slider-container">
+    <img id="slider" class="slider-image" src="assets/img/webpesat.png" alt="Kudai Image" />
+    <button class="nav-button prev" onclick="prevImage()">❮</button>
+    <button class="nav-button next" onclick="nextImage()">❯</button>
+  </div>
+
+  <script>
+    const images = [
+      "assets/img/webpesat.png",
+      "assets/img/visipesat.png",
+      "assets/img/kontakpesat.png",
+      "assets/img/pendaftaranpesat.png"
+    ];
+
+    let currentIndex = 0;
+    const slider = document.getElementById("slider");
+
+    function showImage(index) {
+      slider.style.opacity = 0; // Mulai fade out
+      setTimeout(() => {
+        slider.src = images[index]; // Ganti gambar
+        slider.style.opacity = 1;   // Fade in
+      }, 200); // Delay sedikit sebelum ganti gambar
+    }
+
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      showImage(currentIndex);
+    }
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage(currentIndex);
+    }
+  </script>
+
+  <div class="deskripsi">
+    <p>
+        Website SMK Informatika Pesat hadir sebagai platform digital yang mempermudah calon siswa, orang tua,<br> 
+        dan pengunjung untuk mengenal lebih dekat tentang sekolah kami. Didesain dengan teknologi modern, <br>
+        website ini memberikan pengalaman yang menarik dan informatif.<br>
+        Terdiri dari beberapa halaman utama:<br>
+        <b>Home:</b> Menyajikan gambaran umum tentang sekolah, informasi terbaru, dan akses ke halaman lainnya.<br>
+        <b>Visi Sekolah:</b> Menyampaikan tujuan dan arah pendidikan yang diusung oleh SMK Informatika Pesat untuk mencetak generasi yang unggul dan siap bersaing di dunia digital.<br>
+        <b>Jurusan</b>: Website ini menampilkan 3 jurusan unggulan yang kami tawarkan, yaitu <br>
+        RPL (Rekayasa Perangkat Lunak)<br>
+        TKJ (Teknik Komputer dan Jaringan) <br>
+        DKV (Desain Komunikasi Visual) <br>
+        lengkap dengan informasi tentang setiap jurusan. <br>
+        <b>Kontak:</b> Halaman ini memudahkan pengunjung untuk menghubungi kami melalui nomor telepon, alamat lokasi, atau email yang tersedia.<br>
+        <b>Pendaftaran:</b> Proses pendaftaran siswa baru bisa dilakukan dengan mudah melalui formulir yang ada di halaman ini.<br><br>
+        Website ini dibangun menggunakan PHP, HTML, dan Laravel untuk memastikan performa yang cepat dan handal, <br>
+        sementara Tailwind CSS digunakan untuk desain yang responsif dan modern, memudahkan akses di berbagai perangkat.<br>
+        Dengan tampilan yang bersih dan mudah dinavigasi, kami berharap website ini bisa menjadi wadah yang informatif dan fungsional bagi semua yang tertarik untuk bergabung dengan SMK Informatika Pesat.
+    </p>
+  </div>
+</body>
+</html>
